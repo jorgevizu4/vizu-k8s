@@ -43,7 +43,6 @@ secrets.yaml
 secret.yaml
 *secret*.yaml
 *.enc
-.sops.yaml
 
 ############################
 # Terraform / IaC (si lo usas en el futuro)
