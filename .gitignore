@@ -1,0 +1,77 @@
+############################
+# VS Code / IDE
+############################
+.vscode/
+.idea/
+*.code-workspace
+
+############################
+# OS / sistema
+############################
+.DS_Store
+Thumbs.db
+
+############################
+# Logs
+############################
+*.log
+
+############################
+# Kubernetes / Kubeconfig
+############################
+.kube/
+*.kubeconfig
+
+############################
+# Minikube / local cluster state
+############################
+.minikube/
+*.minikube/
+
+############################
+# Helm
+############################
+*.tgz
+charts/*/charts/
+charts/*/crds/
+*.lock
+
+############################
+# Secrets (MUY IMPORTANTE)
+############################
+secrets.yaml
+secret.yaml
+*secret*.yaml
+*.enc
+.sops.yaml
+
+############################
+# Terraform / IaC (si lo usas en el futuro)
+############################
+*.tfstate
+*.tfstate.*
+.terraform/
+
+############################
+# Python / apps (si Langflow o tooling local)
+############################
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+############################
+# Node (si hay dashboards/tools)
+############################
+node_modules/
+
+############################
+# Flux / manifests generados localmente
+############################
+*.generated.yaml
+
+############################
+# Backups
+############################
+*.bak
+*.backup
