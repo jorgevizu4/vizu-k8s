@@ -54,7 +54,7 @@ spec:
           password:
             value: "langflow-postgres"
           database:
-            value: "langflow-db"
+            value: "langflow"
 
       frontend:
         replicaCount: 1
@@ -75,7 +75,7 @@ spec:
       auth:
         username: "langflow"
         password: "langflow-postgres"
-        database: "langflow-db"
+        database: "langflow"
       resources:
         requests:
           cpu: 250m
