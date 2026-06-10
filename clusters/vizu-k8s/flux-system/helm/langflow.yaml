@@ -5,8 +5,4 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m0s
-  # Replace the URL below with the real Helm chart repository URL that contains the `langflow-ide` chart
   url: "https://langflow-ai.github.io/langflow-helm-charts"
-  # If the repo requires authentication, add a `secretRef` here and create the secret in namespace `flux-system`:
-  # secretRef:
-  #   name: langflow-helm-secret
