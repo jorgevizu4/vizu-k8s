@@ -86,6 +86,10 @@ spec:
         username: "langflow"
         password: "langflow1234"
         database: "langflow-db"
+      # Override image to avoid pulling a removed/non-existent tag
+      image:
+        repository: docker.io/bitnami/postgresql
+        tag: "16.4.0-debian-12-r15" # change if docker pull shows this tag does not exist
 
     # Ingress con nginx de minikube
     ingress:
