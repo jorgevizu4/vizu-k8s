@@ -48,8 +48,6 @@ spec:
         #   value: "true"
         # - name: LANGFLOW_SECRET_KEY
         #   value: "xxxx"
-        - name: LANGFLOW_DATABASE_URL
-        value: "postgresql://langflow:langflow-postgres@langflow-postgresql:5432/langflow-db"
 
       frontend:
         replicaCount: 1
