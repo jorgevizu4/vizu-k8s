@@ -84,7 +84,7 @@ spec:
       enabled: true
       auth:
         username: "langflow"
-        password: "langflow1234"
+        password: "langflow-postgresql"
         database: "langflow-db"
       # Override image to avoid pulling a removed/non-existent tag
       image:
