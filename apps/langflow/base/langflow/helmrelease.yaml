@@ -3,7 +3,6 @@ kind: HelmRelease
 metadata:
   name: langflow
   namespace: langflow
-
 spec:
   interval: 5m
   timeout: 30m
@@ -15,22 +14,18 @@ spec:
         kind: HelmRepository
         name: langflow
         namespace: flux-system
-
   install:
     createNamespace: true
-
   upgrade:
     remediation:
       retries: 3
 
   values:
-    sqlite:
-      enabled: false
-    # Imagen global
+    # 1. Configuración de Langflow
     langflow:
       global:
         image:
-          tag: latest
+          tag: "latest"
 
       backend:
         replicaCount: 1
@@ -42,17 +37,24 @@ spec:
             cpu: 3
             memory: 3Gi
         env:
-        - name: LANGFLOW_LOG_LEVEL
-          value: "INFO"
-
+          - name: LANGFLOW_LOG_LEVEL
+            value: "INFO"
+        
+        # Sintaxis corregida compatible con los objetos vacíos '{}' del chart
         externalDatabase:
           enabled: true
-          driver: "postgresql"
-          host: "langflow-postgresql"
-          port: "5432"
-          user: "langflow"
-          password: "langflow-postgres"
-          database: "langflow-db"
+          driver:
+            value: "postgresql"
+          host:
+            value: "langflow-postgresql"
+          port:
+            value: "5432"
+          user:
+            value: "langflow"
+          password:
+            value: "langflow-postgres"
+          database:
+            value: "langflow-db"
 
       frontend:
         replicaCount: 1
@@ -63,9 +65,8 @@ spec:
           limits:
             cpu: 1
             memory: 1Gi
-        # env:
-        # - name: LANGFLOW_BACKEND_URL
-        #   value: "http://langflow-backend:7860"
+
+    # 2. Subchart de PostgreSQL (Alineado a la raíz de values)
     postgresql:
       enabled: true
       image:
@@ -89,13 +90,12 @@ spec:
         extraVolumeMounts:
           - name: postgres-run
             mountPath: /var/run/postgresql
-      # For development: disable subchart persistence so postgres uses ephemeral storage
       persistence:
         enabled: false
       securityContext:
         fsGroup: 1001
 
-    # Persistencia (volúmenes específicos)
+    # 3. Persistencia General (Alineado a la raíz de values)
     persistence:
       enabled: true
       volumes:
@@ -104,9 +104,9 @@ spec:
         data:
           enabled: true
         db:
-          enabled: false # disabled for development to avoid read-only PVC mounts
+          enabled: false
 
-    # Ingress con nginx de minikube
+    # 4. Ingress (Alineado a la raíz de values)
     ingress:
       enabled: true
       className: nginx
