@@ -77,8 +77,13 @@ spec:
         limits:
           cpu: 1
           memory: 2Gi
+      # For development: disable subchart persistence so postgres uses ephemeral storage
+      persistence:
+        enabled: false
+      securityContext:
+        fsGroup: 1001
 
-    # Persistencia
+    # Persistencia (volúmenes específicos)
     persistence:
       enabled: true
       volumes:
@@ -87,7 +92,7 @@ spec:
         data:
           enabled: true
         db:
-          enabled: true
+          enabled: false # disabled for development to avoid read-only PVC mounts
 
     # Ingress con nginx de minikube
     ingress:
