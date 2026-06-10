@@ -44,6 +44,16 @@ spec:
           value: "INFO"
         - name: LF_CHART_EXTERNALDB_DRIVER
           value: "postgresql"
+        - name: LF_DATABASE_HOST
+          value: "langflow-postgresql"
+        - name: LF_DATABASE_PORT
+          value: "5432"
+        - name: LF_DATABASE_NAME
+          value: "langflow-db"
+        - name: LF_DATABASE_USER
+          value: "langflow"
+        - name: LF_DATABASE_PASSWORD
+          value: "langflow-postgres"
         # - name: LANGFLOW_AUTO_LOGIN
         #   value: "true"
         # - name: LANGFLOW_SECRET_KEY
