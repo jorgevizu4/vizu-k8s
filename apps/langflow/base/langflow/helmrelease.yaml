@@ -61,12 +61,12 @@ spec:
         # env:
         # - name: LANGFLOW_BACKEND_URL
         #   value: "http://langflow-backend:7860"
-      postgresql:
-        enabled: true
-        auth:
-          username: "langflow"
-          password: "langflow-postgres"
-          database: "langflow-db"
+    postgresql:
+      enabled: true
+      auth:
+        username: "langflow"
+        password: "langflow-postgres"
+        database: "langflow-db"
 
     # Persistencia
     persistence:
