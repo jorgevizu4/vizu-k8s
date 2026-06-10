@@ -49,12 +49,6 @@ spec:
         # - name: LANGFLOW_DATABASE_URL
         #   value: "postgresql://usuario:password@postgres:5432/langflow"
 
-        # Para desarrollo en minikube
-        backendOnly: true
-
-        # Seguridad básica
-        secretKey: "cambia-esto"
-
       frontend:
         replicaCount: 1
         resources:
@@ -67,6 +61,12 @@ spec:
         # env:
         # - name: LANGFLOW_BACKEND_URL
         #   value: "http://langflow-backend:7860"
+      postgresql:
+        enabled: true
+        auth:
+          username: "langflow"
+          password: "langflow-postgres"
+          database: "langflow-db"
 
     # Persistencia
     persistence:
@@ -78,18 +78,6 @@ spec:
           enabled: true
         db:
           enabled: true
-
-    # PostgreSQL interno del chart (opcional)
-    postgresql:
-      enabled: true
-      auth:
-        username: "langflow"
-        password: "langflow-postgresql"
-        database: "langflow-db"
-      # Override image to avoid pulling a removed/non-existent tag
-      image:
-        repository: docker.io/bitnami/postgresql
-        tag: "16.4.0-debian-12-r15" # change if docker pull shows this tag does not exist
 
     # Ingress con nginx de minikube
     ingress:
