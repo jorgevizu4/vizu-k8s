@@ -44,21 +44,15 @@ spec:
         env:
         - name: LANGFLOW_LOG_LEVEL
           value: "INFO"
-          
+
         externalDatabase:
           enabled: true
-          driver:
-            value: "postgresql"
-          host:
-            value: "langflow-postgresql"
-          port:
-            value: "5432"
-          user:
-            value: "langflow"
-          password:
-            value: "langflow-postgres"
-          database:
-            value: "langflow-db"
+          driver: "postgresql"
+          host: "langflow-postgresql"
+          port: "5432"
+          user: "langflow"
+          password: "langflow-postgres"
+          database: "langflow-db"
 
       frontend:
         replicaCount: 1
