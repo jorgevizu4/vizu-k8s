@@ -65,11 +65,18 @@ spec:
       enabled: true
       image:
         repository: postgres
-        tag: "16"
+        tag: "16-alpine"
       auth:
         username: "langflow"
         password: "langflow-postgres"
         database: "langflow-db"
+      resources:
+        requests:
+          cpu: 250m
+          memory: 512Mi
+        limits:
+          cpu: 1
+          memory: 2Gi
 
     # Persistencia
     persistence:
