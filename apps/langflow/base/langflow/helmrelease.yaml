@@ -24,6 +24,8 @@ spec:
       retries: 3
 
   values:
+    sqlite:
+      enabled: false
     # Imagen global
     langflow:
       global:
@@ -42,24 +44,21 @@ spec:
         env:
         - name: LANGFLOW_LOG_LEVEL
           value: "INFO"
-        - name: LF_CHART_EXTERNALDB_DRIVER
-          value: "postgresql"
-        - name: LF_DATABASE_HOST
-          value: "langflow-postgresql"
-        - name: LF_DATABASE_PORT
-          value: "5432"
-        - name: LF_DATABASE_NAME
-          value: "langflow-db"
-        - name: LF_DATABASE_USER
-          value: "langflow"
-        - name: LF_DATABASE_PASSWORD
-          value: "langflow-postgres"
-        # - name: LANGFLOW_AUTO_LOGIN
-        #   value: "true"
-        # - name: LANGFLOW_SECRET_KEY
-        #   value: "xxxx"
-        sqlite:
-          enabled: false
+          
+        externalDatabase:
+          enabled: true
+          driver:
+            value: "postgresql"
+          host:
+            value: "langflow-postgresql"
+          port:
+            value: "5432"
+          user:
+            value: "langflow"
+          password:
+            value: "langflow-postgres"
+          database:
+            value: "langflow-db"
 
       frontend:
         replicaCount: 1
