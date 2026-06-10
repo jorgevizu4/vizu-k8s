@@ -58,6 +58,8 @@ spec:
         #   value: "true"
         # - name: LANGFLOW_SECRET_KEY
         #   value: "xxxx"
+        sqlite:
+          enabled: false
 
       frontend:
         replicaCount: 1
