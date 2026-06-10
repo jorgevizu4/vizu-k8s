@@ -1,0 +1,98 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: langflow
+  namespace: langflow
+
+spec:
+  interval: 5m
+
+  chart:
+    spec:
+      chart: langflow-ide
+      version: "*"
+      sourceRef:
+        kind: HelmRepository
+        name: langflow
+        namespace: flux-system
+
+  install:
+    createNamespace: true
+
+  upgrade:
+    remediation:
+      retries: 3
+
+  values:
+    # Imagen global
+    langflow:
+      global:
+        image:
+          tag: latest
+
+      backend:
+        replicaCount: 1
+        resources:
+          requests:
+            cpu: 500m
+            memory: 1Gi
+          limits:
+            cpu: 2
+            memory: 4Gi
+        env:
+        - name: LANGFLOW_LOG_LEVEL
+          value: "INFO"
+        # - name: LANGFLOW_AUTO_LOGIN
+        #   value: "true"
+        # - name: LANGFLOW_SECRET_KEY
+        #   value: "xxxx"
+        # - name: LANGFLOW_DATABASE_URL
+        #   value: "postgresql://usuario:password@postgres:5432/langflow"
+
+        # Para desarrollo en minikube
+        backendOnly: true
+
+        # Seguridad básica
+        secretKey: "cambia-esto"
+
+      frontend:
+        replicaCount: 1
+        resources:
+          requests:
+            cpu: 200m
+            memory: 512Mi
+          limits:
+            cpu: 1
+            memory: 1Gi
+        # env:
+        # - name: LANGFLOW_BACKEND_URL
+        #   value: "http://langflow-backend:7860"
+
+    # Persistencia
+    persistence:
+      enabled: true
+      volumes:
+        flows:
+          enabled: true
+        data:
+          enabled: true
+        db:
+          enabled: true
+
+    # PostgreSQL interno del chart (opcional)
+    postgresql:
+      enabled: true
+      auth:
+        username: "langflow"
+        password: "langflow1234"
+        database: "langflow-db"
+
+    # Ingress con nginx de minikube
+    ingress:
+      enabled: true
+      className: nginx
+      hosts:
+        - host: langflow.local
+          paths:
+            - path: /
+              pathType: Prefix
