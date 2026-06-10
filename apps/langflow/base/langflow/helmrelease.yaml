@@ -39,6 +39,8 @@ spec:
         env:
           - name: LANGFLOW_LOG_LEVEL
             value: "INFO"
+          - name: LANGFLOW_ALEMBIC_LOG_FILE
+            value: "/tmp/alembic.log"
         
         # Sintaxis corregida compatible con los objetos vacíos '{}' del chart
         externalDatabase:
