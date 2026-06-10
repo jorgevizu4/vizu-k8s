@@ -63,6 +63,9 @@ spec:
         #   value: "http://langflow-backend:7860"
     postgresql:
       enabled: true
+      image:
+        repository: bitnami/postgresql
+        tag: "16.6.0-debian-12-r0"
       auth:
         username: "langflow"
         password: "langflow-postgres"
