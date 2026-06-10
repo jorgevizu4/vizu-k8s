@@ -6,7 +6,7 @@ metadata:
 
 spec:
   interval: 5m
-
+  timeout: 30m
   chart:
     spec:
       chart: langflow-ide
@@ -37,8 +37,8 @@ spec:
             cpu: 500m
             memory: 1Gi
           limits:
-            cpu: 2
-            memory: 4Gi
+            cpu: 3
+            memory: 3Gi
         env:
         - name: LANGFLOW_LOG_LEVEL
           value: "INFO"
