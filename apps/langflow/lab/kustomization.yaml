@@ -3,3 +3,4 @@ kind: Kustomization
 
 resources:
   - ../../langflow/base
+  - langflow-secrets.sops.yaml
