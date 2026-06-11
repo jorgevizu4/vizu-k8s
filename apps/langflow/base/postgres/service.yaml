@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  # Este nombre generará exactamente el DNS: postgresql-svc.langflow.svc.cluster.local
+  name: postgresql-svc
+  namespace: langflow
+spec:
+  type: ClusterIP
+  ports:
+    - port: 5432
+      targetPort: 5432
+  selector:
+    app: langflow-postgres

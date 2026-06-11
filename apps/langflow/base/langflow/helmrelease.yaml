@@ -116,7 +116,7 @@ spec:
     # 4. Ingress (Alineado a la raíz de values)
     ingress:
       enabled: true
-      className: nginx
+      className: "nginx"
       hosts:
         - host: langflow.local
           paths:
