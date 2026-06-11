@@ -50,14 +50,16 @@ spec:
         autoLogin: false
         superuser: "jorge"                      
         superuserPassword: "jorge1234"
+
         sqlite:
           enabled: false
+
         externalDatabase:
           enabled: true
           driver:
             value: "postgresql"
           host:
-            value: "langflow-postgresql"
+            value: "postgresql-svc.langflow.svc.cluster.local"
           port:
             value: "5432"
           user:
@@ -65,7 +67,7 @@ spec:
           database:
             value: "langflow"
           password:
-            value: "langflow-postgres"
+            value: "langflow1234"
 
       frontend:
         replicaCount: 1
@@ -79,15 +81,7 @@ spec:
 
     # 2. Subchart de PostgreSQL (Alineado a la raíz de values)
     postgresql:
-      enabled: true
-      image:
-        repository: postgres
-        tag: "16-alpine"
-
-      auth:
-        username: "langflow"
-        database: "langflow"
-        password: "langflow-postgres"
+      enabled: false
         
       resources:
         requests:
