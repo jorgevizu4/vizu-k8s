@@ -39,10 +39,9 @@ charts/*/crds/
 ############################
 # Secrets (MUY IMPORTANTE)
 ############################
-secrets.yaml
-secret.yaml
-*secret*.yaml
-*.enc
+*secrets.yaml
+*secret.yaml
+*.env
 
 ############################
 # Terraform / IaC (si lo usas en el futuro)
