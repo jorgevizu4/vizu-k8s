@@ -65,7 +65,7 @@ spec:
           user:
             value: "langflow"
           database:
-            value: "langflow"
+            value: "langflow-db"
           password:
             value: "langflow1234"
 
