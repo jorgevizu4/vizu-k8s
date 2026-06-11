@@ -47,22 +47,6 @@ spec:
             value: "INFO"
           - name: LANGFLOW_ALEMBIC_LOG_FILE
             value: "/tmp/alembic.log"
-        
-        # Sintaxis corregida compatible con los objetos vacíos '{}' del chart
-        externalDatabase:
-          enabled: false
-          driver:
-            value: "postgresql"
-          host:
-            value: "langflow-postgresql"
-          port:
-            value: "5432"
-          user:
-            value: "langflow"
-          password: 
-            value: "langflow1234"
-          database:
-            value: "langflow"
 
       frontend:
         replicaCount: 1
