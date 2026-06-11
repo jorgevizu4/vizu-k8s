@@ -63,7 +63,7 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: langflow-secrets
-                key: DB_PASSWORD
+                key: "DB_PASSWORD"
           database:
             value: "langflow"
 
