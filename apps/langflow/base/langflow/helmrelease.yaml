@@ -59,7 +59,7 @@ spec:
             value: "5432"
           user:
             value: "langflow"
-          password: "postgres-password"
+          password: "langflow1234"
           database:
             value: "langflow"
 
@@ -83,7 +83,7 @@ spec:
       auth:
         username: "langflow"
         database: "langflow"
-        password: "postgres-password"
+        password: "langflow1234"
         
       resources:
         requests:
