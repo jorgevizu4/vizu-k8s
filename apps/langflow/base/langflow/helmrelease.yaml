@@ -59,7 +59,8 @@ spec:
             value: "5432"
           user:
             value: "langflow"
-          password: "langflow1234"
+          password: 
+            value: "langflow1234"
           database:
             value: "langflow"
 
