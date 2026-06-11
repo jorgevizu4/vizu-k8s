@@ -50,7 +50,7 @@ spec:
         
         # Sintaxis corregida compatible con los objetos vacíos '{}' del chart
         externalDatabase:
-          enabled: true
+          enabled: false
           driver:
             value: "postgresql"
           host:
@@ -84,7 +84,7 @@ spec:
       auth:
         username: "langflow"
         database: "langflow"
-        password: "langflow1234"
+        password: "langflow-postgres"
         
       resources:
         requests:
