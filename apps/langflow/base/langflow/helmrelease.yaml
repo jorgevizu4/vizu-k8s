@@ -60,10 +60,7 @@ spec:
           user:
             value: "langflow"
           password:
-            valueFrom:
-              secretKeyRef:
-                name: langflow-secrets
-                key: DB_PASSWORD
+            value: "postgres-password"
           database:
             value: "langflow"
 
