@@ -54,7 +54,7 @@ spec:
           driver:
             value: "postgresql"
           host:
-            value: "langflow-postgresql-primary"
+            value: "langflow-postgresql"
           port:
             value: "5432"
           user:
