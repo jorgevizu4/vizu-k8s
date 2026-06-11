@@ -11,8 +11,7 @@ spec:
     name: flux-system
   path: ./apps/__overlays/lab
   prune: true
-  # decryption removed to allow applying overlay during local development
-  # decryption:
-  #   provider: sops
-  #   secretRef:
-  #     name: sops-keys
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-keys
