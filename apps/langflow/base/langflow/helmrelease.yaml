@@ -29,6 +29,12 @@ spec:
 
       backend:
         replicaCount: 1
+        livenessProbe:
+          initialDelaySeconds: 60
+          periodSeconds: 10
+        readinessProbe:
+          initialDelaySeconds: 60
+          periodSeconds: 10
         resources:
           requests:
             cpu: 500m
@@ -74,15 +80,6 @@ spec:
       image:
         repository: postgres
         tag: "16-alpine"
-      
-      # # Añadimos las variables de entorno nativas que la imagen oficial requiere obligatoriamente
-      # containerEnv:
-      #   - name: POSTGRES_DB
-      #     value: "langflow-db"
-      #   - name: POSTGRES_USER
-      #     value: "langflow"
-      #   - name: POSTGRES_PASSWORD
-      #     value: "langflow-postgres"
 
       auth:
         username: "langflow"
