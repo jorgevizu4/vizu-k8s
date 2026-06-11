@@ -52,6 +52,20 @@ spec:
         superuserPassword: "jorge1234"
         sqlite:
           enabled: false
+        externalDatabase:
+          enabled: true
+          driver:
+            value: "postgresql"
+          host:
+            value: "langflow-postgresql"
+          port:
+            value: "5432"
+          user:
+            value: "langflow"
+          database:
+            value: "langflow"
+          password:
+            value: "langflow-postgres"
 
       frontend:
         replicaCount: 1
