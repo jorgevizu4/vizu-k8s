@@ -87,7 +87,7 @@ spec:
       auth:
         username: "langflow"
         database: "langflow"
-        password: "langflow-postgres"
+        password: "postgres-password"
         
       resources:
         requests:
