@@ -62,7 +62,7 @@ spec:
           password:
             valueFrom:
               secretKeyRef:
-                name: langflow-secrets
+                name: "langflow-secrets"
                 key: "DB_PASSWORD"
           database:
             value: "langflow"
@@ -90,6 +90,7 @@ spec:
         existingSecret: "langflow-secrets"
         secretKeys:
           userPasswordKey: "DB_PASSWORD"
+          adminPasswordKey: "postgres-password"
         
       resources:
         requests:
