@@ -11,7 +11,7 @@ spec:
       targetPort: 5432
   selector:
     app: langflow-postgres
-  clusterIP: ClusterIP
+  type: ClusterIP
 ---
 apiVersion: apps/v1
 kind: StatefulSet
