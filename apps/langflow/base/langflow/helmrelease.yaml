@@ -51,6 +51,8 @@ spec:
         superuser: "jorge"                      # Tu nombre de usuario para el login
         superuserPassword: "jorge1234" # Tu contraseña para el login
         secretKey: "jorge1234"
+        sqlite:
+          enabled: false
 
       frontend:
         replicaCount: 1
