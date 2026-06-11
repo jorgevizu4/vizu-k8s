@@ -48,9 +48,8 @@ spec:
           - name: LANGFLOW_ALEMBIC_LOG_FILE
             value: "/tmp/alembic.log"
         autoLogin: false
-        superuser: "jorge"                      # Tu nombre de usuario para el login
-        superuserPassword: "jorge1234" # Tu contraseña para el login
-        secretKey: "jorge1234"
+        superuser: "jorge"                      
+        superuserPassword: "jorge1234"
         sqlite:
           enabled: false
 
